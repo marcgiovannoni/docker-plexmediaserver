@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Output logs to stdout.
-echo "Redirecting logs to stdout..."
-mkdir -p '/config/logs'
-touch '/config/main.log'
-tail -f '/config/main.log' &
+# Delete PID file (prevent start error when already started)
+if [ -f /config/Plex\ Media\ Server/plexmediaserver.pid ]; then
+    rm -f /config/Plex\ Media\ Server/plexmediaserver.pid
+fi
 
-echo "Starting Plex Media Server..."
 exec "$@"
+echo "Plex Media Server started!"
+
