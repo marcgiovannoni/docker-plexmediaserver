@@ -25,13 +25,7 @@ RUN apt-get update && \
 # Clean
     rm -f /bin/start && \
     apt-get clean && \
-	rm -rf /var/lib/apt/lists/* && \
-# Create config folder
-	mkdir /config && \
-    chown plex:plex /config && \
-# Create transcode folder
-	mkdir /transcode && \
-    chown plex:plex /transcode
+    rm -rf /var/lib/apt/lists/*
 
 # Plex environment settings
 ENV PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6 \
@@ -50,5 +44,5 @@ USER plex
 # Entrypoint
 COPY ./entrypoint.sh /
 WORKDIR /usr/lib/plexmediaserver
-ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ./Plex\ Media\ Server
