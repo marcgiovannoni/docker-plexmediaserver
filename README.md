@@ -32,5 +32,5 @@ Example:
 
 Open `http://localhost:32400/web` in your browser to access Plex Media Server web.
 
-Once you have access, go to `Server -> Network -> Advanced -> List of IP addresses and networks that are allowed without auth` and populate it with your docker gateway that most of the time be `172.17.0.1/255.255.0.0`.
-You will then be able to access Plex Media Server web without --not=host. (This will be done by default by the container if required on a future release)
+Once you have access, go to `Server -> Network -> Advanced -> List of IP addresses and networks that are allowed without auth` and populate it with your docker gateway that most of the time be `172.17.0.0/16`. (This will be done by default by the container if required on a future release)
+You will then be able to access Plex Media Server web without `--not=host`.
